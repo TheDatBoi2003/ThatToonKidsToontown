@@ -2394,6 +2394,12 @@ SuitBackStabberP = 'Back Stabbers'
 SuitSpinDoctorP = 'Spin Doctors'
 SuitLegalEagleP = 'Legal Eagles'
 SuitBigWigP = 'Big Wigs'
+
+#EXTRA SUITS
+SuitHotCaller = 'Hot Caller'
+SuitHotCallerS = 'a Hot Caller'
+SuitHotCallerP = 'Hot Callers'
+
 SuitFaceoffDefaultTaunts = ['Boo!']
 SuitAttackDefaultTaunts = ['Take that!', 'Take a memo on this!']
 SuitAttackNames = {'Audit': 'Audit!',

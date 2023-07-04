@@ -78,6 +78,10 @@ cc = (('speak', 'speak', 5),
  ('glower', 'glower', 5),
  ('phone', 'phone', 3.5),
  ('finger-wag', 'finger-wag', 5))
+hc = (('speak', 'speak', 5),
+ ('glower', 'glower', 5),
+ ('phone', 'phone', 3.5),
+ ('finger-wag', 'finger-wag', 5))
 tm = (('speak', 'speak', 5),
  ('throw-paper', 'throw-paper', 5),
  ('pickpocket', 'pickpocket', 5),
@@ -562,6 +566,13 @@ class Suit(Avatar.Avatar):
             self.scale = 3.5 / cSize
             self.handColor = VBase4(0.55, 0.65, 1.0, 1.0)
             self.headColor = VBase4(0.25, 0.35, 1.0, 1.0)
+            self.generateBody()
+            self.generateHead('coldcaller')
+            self.setHeight(4.63)
+        elif dna.name == 'hc':
+            self.scale = 3.5 / cSize
+            self.handColor = VBase4(0.9, 0.2, 0.2, 1.0)
+            self.headColor = VBase4(1, 0.1, 0.1, 1.0)
             self.generateBody()
             self.generateHead('coldcaller')
             self.setHeight(4.63)

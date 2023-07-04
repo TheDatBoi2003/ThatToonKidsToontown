@@ -38,7 +38,8 @@ suitHeadTypes = ['f',
  'ms',
  'tf',
  'm',
- 'mh']
+ 'mh',
+ 'hc']
 suitATypes = ['ym',
  'hh',
  'tbc',
@@ -70,6 +71,7 @@ suitCTypes = ['f',
  'tw',
  'mb',
  'cc',
+ 'hc',
  'gh']
 suitDepts = ['c',
  'l',
@@ -98,6 +100,54 @@ suitsPerLevel = [1,
 suitsPerDept = 8
 goonTypes = ['pg', 'sg']
 
+suitTierDict = {
+    's': [
+        ['cc', 'hc'],
+        ['tm'],
+        ['nd'],
+        ['gh'],
+        ['ms'],
+        ['tf'],
+        ['m'],
+        ['mh']
+    ],
+    'm': [
+        ['sc'],
+        ['pp'],
+        ['tw'],
+        ['bc'],
+        ['nc'],
+        ['mb'],
+        ['ls'],
+        ['rb']
+    ],
+    'l': [
+      ['bf'],
+      ['b'],
+      ['dt'],
+      ['ac'],
+      ['bs'],
+      ['sd'],
+      ['le'],
+      ['bw'] 
+    ],
+    'c': [
+        ['f'],
+        ['p'],
+        ['ym'],
+        ['mm'],
+        ['ds'],
+        ['hh'],
+        ['cr'],
+        ['tbc']
+    ]
+}
+
+sellbots = ['cc', 'hc', 'tm', 'nd', 'gh', 'ms', 'tf', 'm', 'mh']
+cashbots = ['sc', 'pp', 'tw', 'bc', 'nc', 'mb', 'ls', 'rb']
+lawbots = ['bf', 'b', 'dt', 'ac', 'bs', 'sd', 'le', 'bw']
+bossbots = ['f', 'p', 'ym', 'mm', 'ds', 'hh', 'cr', 'tbc']
+
 def getSuitBodyType(name):
     if name in suitATypes:
         return 'a'
@@ -111,13 +161,13 @@ def getSuitBodyType(name):
 
 def getSuitDept(name):
     index = suitHeadTypes.index(name)
-    if index < suitsPerDept:
+    if name in bossbots:
         return suitDepts[0]
-    elif index < suitsPerDept * 2:
+    elif name in lawbots:
         return suitDepts[1]
-    elif index < suitsPerDept * 3:
+    elif name in cashbots:
         return suitDepts[2]
-    elif index < suitsPerDept * 4:
+    elif name in sellbots:
         return suitDepts[3]
     else:
         print 'Unknown dept for suit name: ', name
@@ -236,15 +286,9 @@ class SuitDNA(AvatarDNA.AvatarDNA):
             dept = random.choice(suitDepts)
         self.dept = dept
         index = suitDepts.index(dept)
-        base = index * suitsPerDept
-        offset = 0
-        if level > 1:
-            for i in xrange(1, level):
-                offset = offset + suitsPerLevel[i - 1]
-
-        bottom = base + offset
-        top = bottom + suitsPerLevel[level - 1]
-        self.name = suitHeadTypes[random.choice(xrange(bottom, top))]
+        
+        
+        self.name = random.choice(suitTierDict[dept][level-1])
         self.body = getSuitBodyType(self.name)
         return
 
