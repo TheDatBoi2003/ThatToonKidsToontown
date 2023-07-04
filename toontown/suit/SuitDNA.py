@@ -6,6 +6,7 @@ import random
 from direct.distributed.PyDatagram import PyDatagram
 from direct.distributed.PyDatagramIterator import PyDatagramIterator
 from otp.avatar import AvatarDNA
+from SuitLocalizerEnglish import *
 notify = directNotify.newCategory('SuitDNA')
 suitHeadTypes = ['f',
  'p',
@@ -40,51 +41,88 @@ suitHeadTypes = ['f',
  'm',
  'mh',
  'hc']
-suitATypes = ['ym',
- 'hh',
- 'tbc',
- 'dt',
- 'bs',
- 'le',
- 'bw',
- 'pp',
- 'nc',
- 'rb',
- 'nd',
- 'tf',
- 'm',
- 'mh']
-suitBTypes = ['p',
- 'ds',
- 'b',
- 'ac',
- 'sd',
- 'bc',
- 'ls',
- 'tm',
- 'ms']
-suitCTypes = ['f',
- 'mm',
- 'cr',
- 'bf',
- 'sc',
- 'tw',
- 'mb',
- 'cc',
- 'hc',
- 'gh']
-suitDepts = ['c',
- 'l',
- 'm',
- 's']
-suitDeptFullnames = {'c': TTLocalizer.Bossbot,
- 'l': TTLocalizer.Lawbot,
- 'm': TTLocalizer.Cashbot,
- 's': TTLocalizer.Sellbot}
-suitDeptFullnamesP = {'c': TTLocalizer.BossbotP,
- 'l': TTLocalizer.LawbotP,
- 'm': TTLocalizer.CashbotP,
- 's': TTLocalizer.SellbotP}
+#remake suitHeadTypes to include the new suit strings
+suitHeadTypes = [FLUNKY,
+    PENCIL_PUSHER,
+    YESMAN,
+    MICROMANAGER,
+    DOWNSIZER,
+    HEAD_HUNTER,
+    CORPORATE_RAIDER,
+    THE_BIG_CHEESE,
+    #LAWBOT_STRINGS
+    BOTTOM_FEEDER,
+    BLOODSUCKER,
+    DOUBLE_TALKER,
+    AMBULANCE_CHASER,
+    BACK_STABBER,
+    SPIN_DOCTOR,
+    LEGAL_EAGLE,
+    BIG_WIG,
+    #CASHBOT_STRINGS
+    SHORT_CHANGE,
+    PENNY_PINCHER,
+    TIGHTWAD,
+    BEAN_COUNTER,
+    NUMBER_CRUNCHER,
+    MONEY_BAGS,
+    LOAN_SHARK,
+    ROBBER_BARON,
+    #SELLBOT_STRINGS
+    COLD_CALLER,
+    HOT_CALLER,
+    TELEMARKETER,
+    NAME_DROPPER,
+    GLAD_HANDER,
+    MOVER_AND_SHAKER,
+    TWO_FACE,
+    THE_MINGLER,
+    MR_HOLLYWOOD]
+suitATypes = [YESMAN,
+ HEAD_HUNTER,
+ THE_BIG_CHEESE,
+ DOUBLE_TALKER,
+ BACK_STABBER,
+ LEGAL_EAGLE,
+ BIG_WIG,
+ PENNY_PINCHER,
+ NUMBER_CRUNCHER,
+ ROBBER_BARON,
+ NAME_DROPPER,
+ TWO_FACE,
+ THE_MINGLER,
+ MR_HOLLYWOOD]
+suitBTypes = [PENCIL_PUSHER,
+ DOWNSIZER,
+ BLOODSUCKER,
+ AMBULANCE_CHASER,
+ SPIN_DOCTOR,
+ BEAN_COUNTER,
+ LOAN_SHARK,
+ TELEMARKETER,
+ MOVER_AND_SHAKER]
+suitCTypes = [FLUNKY,
+ MICROMANAGER,
+ CORPORATE_RAIDER,
+ BOTTOM_FEEDER,
+ SHORT_CHANGE,
+ TIGHTWAD,
+ MONEY_BAGS,
+ COLD_CALLER,
+ HOT_CALLER,
+ GLAD_HANDER]
+suitDepts = [BOSSBOT,
+ LAWBOT,
+ CASHBOT,
+ SELLBOT]
+suitDeptFullnames = {BOSSBOT: TTLocalizer.Bossbot,
+ LAWBOT: TTLocalizer.Lawbot,
+ CASHBOT: TTLocalizer.Cashbot,
+ SELLBOT: TTLocalizer.Sellbot}
+suitDeptFullnamesP = {BOSSBOT: TTLocalizer.BossbotP,
+ LAWBOT: TTLocalizer.LawbotP,
+ CASHBOT: TTLocalizer.CashbotP,
+ SELLBOT: TTLocalizer.SellbotP}
 corpPolyColor = VBase4(0.95, 0.75, 0.75, 1.0)
 legalPolyColor = VBase4(0.75, 0.75, 0.95, 1.0)
 moneyPolyColor = VBase4(0.65, 0.95, 0.85, 1.0)
@@ -101,45 +139,45 @@ suitsPerDept = 8
 goonTypes = ['pg', 'sg']
 
 suitTierDict = {
-    's': [
-        ['cc', 'hc'],
-        ['tm'],
-        ['nd'],
-        ['gh'],
-        ['ms'],
-        ['tf'],
-        ['m'],
-        ['mh']
+    SELLBOT: [
+        [COLD_CALLER, HOT_CALLER],
+        [TELEMARKETER],
+        [NAME_DROPPER],
+        [GLAD_HANDER],
+        [MOVER_AND_SHAKER],
+        [TWO_FACE],
+        [THE_MINGLER],
+        [MR_HOLLYWOOD]
     ],
-    'm': [
-        ['sc'],
-        ['pp'],
-        ['tw'],
-        ['bc'],
-        ['nc'],
-        ['mb'],
-        ['ls'],
-        ['rb']
+    CASHBOT: [
+        [SHORT_CHANGE],
+        [PENNY_PINCHER],
+        [TIGHTWAD],
+        [BEAN_COUNTER],
+        [NUMBER_CRUNCHER],
+        [MONEY_BAGS],
+        [LOAN_SHARK],
+        [ROBBER_BARON]
     ],
-    'l': [
-      ['bf'],
-      ['b'],
-      ['dt'],
-      ['ac'],
-      ['bs'],
-      ['sd'],
-      ['le'],
-      ['bw'] 
+    LAWBOT: [
+      [BOTTOM_FEEDER],
+      [BLOODSUCKER],
+      [DOUBLE_TALKER],
+      [AMBULANCE_CHASER],
+      [BACK_STABBER],
+      [SPIN_DOCTOR],
+      [LEGAL_EAGLE],
+      [BIG_WIG] 
     ],
-    'c': [
-        ['f'],
-        ['p'],
-        ['ym'],
-        ['mm'],
-        ['ds'],
-        ['hh'],
-        ['cr'],
-        ['tbc']
+    BOSSBOT: [
+        [FLUNKY],
+        [PENCIL_PUSHER],
+        [YESMAN],
+        [MICROMANAGER],
+        [DOWNSIZER],
+        [HEAD_HUNTER],
+        [CORPORATE_RAIDER],
+        [THE_BIG_CHEESE]
     ]
 }
 
@@ -258,7 +296,7 @@ class SuitDNA(AvatarDNA.AvatarDNA):
 
     def __defaultSuit(self):
         self.type = 's'
-        self.name = 'ds'
+        self.name = DOWNSIZER
         self.dept = getSuitDept(self.name)
         self.body = getSuitBodyType(self.name)
 

@@ -6,6 +6,7 @@ from direct.directnotify import DirectNotifyGlobal
 import DistributedSuitBase
 from toontown.toonbase import ToontownGlobals
 from toontown.battle import MovieUtil
+from SuitLocalizerEnglish import *
 
 class DistributedLawbotBossSuit(DistributedSuitBase.DistributedSuitBase):
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedLawbotBossSuit')

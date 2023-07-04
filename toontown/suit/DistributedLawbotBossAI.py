@@ -19,6 +19,7 @@ from toontown.suit import DistributedLawbotBossSuitAI
 from toontown.coghq import DistributedLawbotCannonAI
 from toontown.coghq import DistributedLawbotChairAI
 from toontown.toonbase import ToontownBattleGlobals
+from SuitLocalizerEnglish import *
 
 class DistributedLawbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM):
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedLawbotBossAI')
@@ -779,13 +780,13 @@ class DistributedLawbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM
 
     def __makeLawyers(self):
         self.__resetLawyers()
-        lawCogChoices = ['b',
-         'dt',
-         'ac',
-         'bs',
-         'sd',
-         'le',
-         'bw']
+        lawCogChoices = [BLOODSUCKER,
+         DOUBLE_TALKER,
+         AMBULANCE_CHASER,
+         BACK_STABBER,
+         SPIN_DOCTOR,
+         LEGAL_EAGLE,
+         BIG_WIG]
         for i in xrange(self.numLawyers):
             suit = DistributedLawbotBossSuitAI.DistributedLawbotBossSuitAI(self.air, None)
             suit.dna = SuitDNA.SuitDNA()
